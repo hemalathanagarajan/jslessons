@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable scope</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var vglobal = 'this is global';
+        function scopeFunction(){
+           alsoglobal = 'this is also global variable';
+           var vnotglobal = 'this is private and scoped to the function';
+         function subfunction(){
+           console.log(`this is subfunction :vnotglobal`);
+           stillglobal = 'no var keyword so this is global';
+           var isprivate = 'this is private to subfunction';
+         }
+         subfunction();
+         //console.log(isprivate);// it not works because this is private to subfunction
+        }
+        console.log(vglobal);
+        //console.log(alsoglobal);
+       
+        scopeFunction();
+        console.log(alsoglobal);
+        //console.log(vnotglobal);//this line gives an error so we created the subfunction and called it
+        
+        console.log(stillglobal);//after commenting line 21 only this line works
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="myForm" action="pagea.html">
+        <p>EMAIL:<input type="email" placeholder="enter email" name="email" size="30"></p>
+ 
+         <p><input type="submit" value="send!" onclick="checkForm();return false;" ></p>
+         <p><button type="button" onclick="openWindow()">B1</button></p>
+     
+     </form> 
+    <script type =  text/javascript>
+     var formEmail = document.myForm.email;//these variables areused to read the values entered
+            //var formAge = document.myForm.age;
+            //var formJob = document.myForm.job;
+           //this if condition is valid only space given in name box ex hema latha
+            
+            //check email having format of @ and .(otherwise we use regex-regular expression)
+            if (formEmail.value = "/^[a-zA-Z0-9._-!#$,*+/=?]+@[a-zA-Z0-9-].[a-zA-]{2,4}$/"){
+                alert("please enter a valid email");
+                formEmail.focus();
+                return;
+            }
+        </script>
+</body>
+</html>

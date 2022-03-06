@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+   <form name="myForm" action="pagea.html">
+       <p>NAME:<input palceholder = "enter name" name="name" type="text" size="30"></p>
+       <p>EMAIL:<input type="email" placeholder="enter email" name="email" size="30"></p>
+       <p>AGE:<input type="text" placeholder="enter age" name="age" size="3"></p>
+        <p>JOB:<select title="joblist" name="job">
+            <option>-----SELECT ONE----</option>
+            <option value="student">student</option>
+            <option value="businessman">businessperson</option>
+        </select></p>
+
+        <p><input type="submit" value="send!" onclick="checkForm();return false;" ></p>
+        <p><button type="button" onclick="openWindow()">B1</button></p>
+    
+    </form> 
+
+    <script type="text/javascript">
+        //checking our data from our machine before going to server
+        function checkForm(){
+            //these are the handles to the element
+           var formName = document.myForm.name;//these variables areused to read the values entered
+           var formEmail = document.myForm.email;//these variables areused to read the values entered
+            var formAge = document.myForm.age;
+            var formJob = document.myForm.job;
+           //this if condition is valid only space given in name box ex hema latha
+            if(formName.value.indexOf(" ") == -1){
+                alert("please enter full name");
+                formName.focus();
+            }
+            //check email having format of @ and .(otherwise we use regex-regular expression)
+            if (formEmail.value.indexOf("@") == -1 || formEmail.value.indexOf(".") == -1){
+                alert("please enter a valid email");
+                formEmail.focus();
+                return;
+            }
+            //check the age
+            let formAgeValue = parseInt(formAge.value);
+            
+               if (formAgeValue < 8 || formAgeValue > 58 ){
+                  alert("age must between 8 and 58!!");
+                  formAge.focus();
+                  return;
+              }
+              //check the job list
+              if (formJob.selectedIndex == 0){
+                  alert("please select your job list");
+                  formJob.focus;
+                  return;
+              }
+              document.myForm.submit();
+        }
+      function openWindow(){
+          myWindow = window.open("pageb.html","page2","height=300,width=400");//to open new window at iven size from our window
+      }
+
+    </script>
+</body>
+</html>

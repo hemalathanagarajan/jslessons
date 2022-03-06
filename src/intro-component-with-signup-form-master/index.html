@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style1.css">
+  
+  <title>Frontend Mentor | Intro component with sign up form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  
+</head>
+<body>
+<div class="container">
+  <div class="left">
+<h1> Learn to code by<br> watching others</h1>
+
+  <p>See how experienced developers solve problems in real-time.<br> Watching scripted tutorials is great, 
+  but understanding how <br>developers think is invaluable. </p>
+</div>
+
+<div class="right">
+
+ <button>Try it free 7 days then $20/mo. thereafter</button> 
+ <form name="myForm" action="pagea.html">
+  <p><input palceholder = "enter  first name" name="name" type="text" size="30"></p>
+  <p><input palceholder = "enter  last name" name="name" type="text" size="30"></p>
+  <p><input type="email" placeholder="enter email" name="email" size="30"></p>
+  <p><input type="Password" placeholder="enter your password" ></p>
+ 
+  <button onclick="checkForm()">CLAIM YOUR FREE TRAIL</button>
+  <!--- <p><input type="submit" value="send!" onclick="checkForm();return false;" ></p>
+   <p><button type="button" onclick="openWindow()">B1</button></p>-->
+
+</form> 
+<script type="text/javascript">
+  //checking our data from our machine before going to server
+  function checkForm(){
+      //these are the handles to the element
+     var formName = document.myForm.name;//these variables areused to read the values entered
+     var formEmail = document.myForm.email;//these variables areused to read the values entered
+      var formAge = document.myForm.age;
+      var formJob = document.myForm.job;
+     //this if condition is valid only space given in name box ex hema latha
+      if(formName.value.indexOf(" ") == -1){
+          alert("please enter full name");
+          formName.focus();
+      }
+      //check email having format of @ and .(otherwise we use regex-regular expression)
+      if (formEmail.value.indexOf("@") == -1 || formEmail.value.indexOf(".") == -1){
+          alert("please enter a valid email");
+          formEmail.focus();
+          return;
+      }
+
+        
+        document.myForm.submit();
+  }
+  </script>
+  First Name 
+  Last Name 
+  Email Address
+  Password
+
+  Claim your free trial 
+</div>
+
+  By clicking the button, you are agreeing to our Terms and Services
+</div>
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </p>
+  </footer>
+</body>
+</html>
